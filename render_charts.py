@@ -31,7 +31,7 @@ OUTPUT_DIR = HERE / "presentation_assets"
 DISPLAY_FROM = pd.Timestamp("2023-01-01")
 
 
-def style_figure(fig: go.Figure, title: str, height: int = 350) -> go.Figure:
+def style_figure(fig: go.Figure, title: str, height: int = 540) -> go.Figure:
     fig.update_layout(
         title=title,
         template="plotly_dark",
@@ -47,7 +47,7 @@ def style_figure(fig: go.Figure, title: str, height: int = 350) -> go.Figure:
 
 
 def write_figure(
-    fig: go.Figure, filename: str, title: str, height: int = 350
+    fig: go.Figure, filename: str, title: str, height: int = 540
 ) -> None:
     style_figure(fig, title, height=height)
     fig.write_html(
@@ -201,8 +201,8 @@ def price_indicator_figure(
         rows=2,
         cols=1,
         shared_xaxes=True,
-        vertical_spacing=0.08,
-        row_heights=[0.62, 0.38],
+        vertical_spacing=0.04,
+        row_heights=[0.76, 0.24],
         subplot_titles=("SPY daily OHLC candles", label),
     )
     add_candles(
@@ -272,8 +272,8 @@ def build_charts() -> None:
         rows=2,
         cols=1,
         shared_xaxes=True,
-        vertical_spacing=0.08,
-        row_heights=[0.55, 0.45],
+        vertical_spacing=0.04,
+        row_heights=[0.74, 0.26],
         specs=[[{}], [{"secondary_y": True}]],
         subplot_titles=("Gold daily OHLC candles", "Gold commercial positioning and COT Index"),
     )
@@ -352,8 +352,8 @@ def build_charts() -> None:
         rows=2,
         cols=1,
         shared_xaxes=True,
-        vertical_spacing=0.08,
-        row_heights=[0.58, 0.42],
+        vertical_spacing=0.04,
+        row_heights=[0.76, 0.24],
         specs=[[{"secondary_y": True}], [{}]],
         subplot_titles=("Weekly SPY candles and SPY / Gold ratio", "Williams Valuation Index"),
     )
@@ -424,8 +424,8 @@ def build_charts() -> None:
         rows=2,
         cols=1,
         shared_xaxes=True,
-        vertical_spacing=0.08,
-        row_heights=[0.58, 0.42],
+        vertical_spacing=0.04,
+        row_heights=[0.78, 0.22],
         subplot_titles=("SPY daily OHLC candles", "Available volume input"),
     )
     add_candles(
@@ -496,8 +496,8 @@ def build_charts() -> None:
         rows=2,
         cols=1,
         shared_xaxes=True,
-        vertical_spacing=0.08,
-        row_heights=[0.68, 0.32],
+        vertical_spacing=0.04,
+        row_heights=[0.78, 0.22],
         subplot_titles=("SPY daily candles and WillTrend line", "Trend direction"),
     )
     add_candles(
