@@ -139,6 +139,18 @@
 </div>
 
 </section>
+<section class="slide level2">
+
+<style>
+.reveal .trade-note {
+  color: #c7d0da;
+  font-size: 0.68em;
+  line-height: 1.15;
+  margin: 0.15em 0 0.25em;
+}
+.reveal .trade-note p { margin: 0 !important; }
+</style>
+</section>
 <section id="what-youll-see" class="title-slide slide level1 center">
 <h1>What you’ll see</h1>
 <p>Numba implementations shown on SPY daily candles, Gold COT reports, and weekly SPY relative to Gold. Price charts focus on 2023 onward; COT shows its available history.</p>
@@ -147,6 +159,9 @@
 <section id="commercial-proxy-index" class="title-slide slide level1 center">
 <h1>1 · Commercial Proxy Index</h1>
 <p>8 bar price proxy: <code>SMA(open − close, 8) / SMA(TR, 8) × 50 + 50</code>. Above 50 indicates downward intrabar bias.</p>
+<div class="trade-note">
+<p><strong>Trading use:</strong> Follow commercial bias: buy pullbacks in uptrends, sell rallies in downtrends.</p>
+</div>
 <iframe src="presentation_assets/commercial-proxy.html" title="Interactive Commercial Proxy Index chart" style="width:100%;height:540px;border:0;border-radius:8px;background:#10151d">
 </iframe>
 </section>
@@ -154,6 +169,9 @@
 <section id="large-trader-proxy-index" class="title-slide slide level1 center">
 <h1>2 · Large Trader Proxy Index</h1>
 <p><code>MMA(close − close[8], 40) / MMA(TR, 40) × 50 + 50</code>. Wilder style average; readings center near 50.</p>
+<div class="trade-note">
+<p><strong>Trading use:</strong> Follow proxy direction; use an average cross to time entries and extremes to watch for exhaustion.</p>
+</div>
 <iframe src="presentation_assets/large-trader-proxy.html" title="Interactive Large Trader Proxy Index chart" style="width:100%;height:540px;border:0;border-radius:8px;background:#10151d">
 </iframe>
 </section>
@@ -161,6 +179,9 @@
 <section id="cot-index" class="title-slide slide level1 center">
 <h1>3 · COT Index</h1>
 <p>Gold commercial net normalized over 13 reports. Dates reflect report availability; Gold candles provide price context.</p>
+<div class="trade-note">
+<p><strong>Trading use:</strong> Buy commercial accumulation in uptrends; sell distribution in downtrends; time entries separately.</p>
+</div>
 <iframe src="presentation_assets/cot-index.html" title="Interactive Gold COT Index chart" style="width:100%;height:540px;border:0;border-radius:8px;background:#10151d">
 </iframe>
 </section>
@@ -168,6 +189,9 @@
 <section id="williams-valuation-index" class="title-slide slide level1 center">
 <h1>4 · Williams Valuation Index</h1>
 <p>Weekly SPY relative to Gold; EMA periods 2/22, normalized over 156 weeks. The reference market changes the readings.</p>
+<div class="trade-note">
+<p><strong>Trading use:</strong> Look long below ~15 in a strong uptrend and short above ~75 in a strong downtrend.</p>
+</div>
 <iframe src="presentation_assets/valuation-index.html" title="Interactive Williams Valuation Index chart" style="width:100%;height:540px;border:0;border-radius:8px;background:#10151d">
 </iframe>
 </section>
@@ -175,6 +199,9 @@
 <section id="williams-poiv-ad" class="title-slide slide level1 center">
 <h1>5 · Williams POIV AD</h1>
 <p>Requires open interest. Local SPY data has OHLCV only, so this chart shows candles and volume; POIV is not calculated.</p>
+<div class="trade-note">
+<p><strong>Trading use:</strong> Bullish divergence: price makes a low POIV misses; bearish: price makes a high it misses.</p>
+</div>
 <iframe src="presentation_assets/poiv-ad-inputs.html" title="POIV AD input availability chart" style="width:100%;height:540px;border:0;border-radius:8px;background:#10151d">
 </iframe>
 </section>
@@ -182,6 +209,9 @@
 <section id="blast-off" class="title-slide slide level1 center">
 <h1>6 · Blast Off!</h1>
 <p>One bar: <code>abs(close − open) / true range × 100</code>.</p>
+<div class="trade-note">
+<p><strong>Trading use:</strong> Low readings flag contraction and a possible larger open-to-close move in the next day or two.</p>
+</div>
 <iframe src="presentation_assets/blast-off.html" title="Interactive Blast Off indicator chart" style="width:100%;height:540px;border:0;border-radius:8px;background:#10151d">
 </iframe>
 </section>
@@ -189,6 +219,9 @@
 <section id="willtrend" class="title-slide slide level1 center">
 <h1>7 · WillTrend</h1>
 <p>66 bar average range, multiplier 2.236 (local implementation). Candles show price with the trend line overlaid.</p>
+<div class="trade-note">
+<p><strong>Trading use:</strong> Follow price above/below the ratcheting line; treat a flip as exit or reversal.</p>
+</div>
 <iframe src="presentation_assets/willtrend.html" title="Interactive WillTrend chart" style="width:100%;height:540px;border:0;border-radius:8px;background:#10151d">
 </iframe>
 </section>
@@ -196,6 +229,9 @@
 <section id="ringed-swing-highs-and-lows" class="title-slide slide level1 center">
 <h1>Ringed swing highs and lows</h1>
 <p>Down arrows mark confirmed ringed highs; up arrows mark confirmed ringed lows. Each point is confirmed by the bar to its right, and an adjacent inside bar disqualifies it.</p>
+<div class="trade-note">
+<p><strong>Trading use:</strong> After reversal, buy the first higher ringed low or sell the first lower ringed high; stop past swing.</p>
+</div>
 <iframe src="presentation_assets/ringed-swing-points.html" title="SPY candles with ringed swing high and low arrows" style="width:100%;height:540px;border:0;border-radius:8px;background:#10151d">
 </iframe>
 </section>
@@ -203,6 +239,7 @@
 <section id="reading-the-charts" class="title-slide slide level1 center">
 <h1>Reading the charts</h1>
 <p>These are illustrations, not trade signals. COT uses report availability dates; WVI depends on its reference market; POIV requires open interest.</p>
+<p>Trading notes summarize Larry Williams’ <em>Picture Perfect Trading Manual</em> (2007), Sections 2–3 and 5–7.</p>
 
 </section>
     </div>
