@@ -1,0 +1,73 @@
+---
+title: "Picture Perfect Indicators"
+subtitle: "Interactive Plotly charts with OHLC candlesticks"
+format:
+  revealjs:
+    theme: black
+    slide-number: true
+    width: 1280
+    height: 720
+    margin: 0.04
+    transition: fade
+    center: false
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+# What you’ll see
+
+Numba implementations shown on SPY daily candles, Gold COT reports, and weekly SPY relative to Gold. Price charts focus on 2023 onward; COT shows its available history.
+
+# 1 · Commercial Proxy Index
+
+8 bar price proxy: `SMA(open − close, 8) / SMA(TR, 8) × 50 + 50`. Above 50 indicates downward intrabar bias.
+
+<iframe src="presentation_assets/commercial-proxy.html" title="Interactive Commercial Proxy Index chart" style="width:100%;height:360px;border:0;border-radius:8px;background:#10151d"></iframe>
+
+# 2 · Large Trader Proxy Index
+
+`MMA(close − close[8], 40) / MMA(TR, 40) × 50 + 50`. Wilder style average; readings center near 50.
+
+<iframe src="presentation_assets/large-trader-proxy.html" title="Interactive Large Trader Proxy Index chart" style="width:100%;height:360px;border:0;border-radius:8px;background:#10151d"></iframe>
+
+# 3 · COT Index
+
+Gold commercial net normalized over 13 reports. Dates reflect report availability; Gold candles provide price context.
+
+<iframe src="presentation_assets/cot-index.html" title="Interactive Gold COT Index chart" style="width:100%;height:360px;border:0;border-radius:8px;background:#10151d"></iframe>
+
+# 4 · Williams Valuation Index
+
+Weekly SPY relative to Gold; EMA periods 2/22, normalized over 156 weeks. The reference market changes the readings.
+
+<iframe src="presentation_assets/valuation-index.html" title="Interactive Williams Valuation Index chart" style="width:100%;height:360px;border:0;border-radius:8px;background:#10151d"></iframe>
+
+# 5 · Williams POIV AD
+
+Requires open interest. Local SPY data has OHLCV only, so this chart shows candles and volume; POIV is not calculated.
+
+<iframe src="presentation_assets/poiv-ad-inputs.html" title="POIV AD input availability chart" style="width:100%;height:360px;border:0;border-radius:8px;background:#10151d"></iframe>
+
+# 6 · Blast Off!
+
+One bar: `abs(close − open) / true range × 100`.
+
+<iframe src="presentation_assets/blast-off.html" title="Interactive Blast Off indicator chart" style="width:100%;height:360px;border:0;border-radius:8px;background:#10151d"></iframe>
+
+# 7 · WillTrend
+
+66 bar average range, multiplier 2.236 (local implementation). Candles show price with the trend line overlaid.
+
+<iframe src="presentation_assets/willtrend.html" title="Interactive WillTrend chart" style="width:100%;height:360px;border:0;border-radius:8px;background:#10151d"></iframe>
+
+# Ringed swing highs and lows
+
+Down arrows mark confirmed ringed highs; up arrows mark confirmed ringed lows. Each point is confirmed by the bar to its right, and an adjacent inside bar disqualifies it.
+
+<iframe src="presentation_assets/ringed-swing-points.html" title="SPY candles with ringed swing high and low arrows" style="width:100%;height:360px;border:0;border-radius:8px;background:#10151d"></iframe>
+
+# Reading the charts
+
+These are illustrations, not trade signals. COT uses report availability dates; WVI depends on its reference market; POIV requires open interest.
