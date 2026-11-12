@@ -94,13 +94,12 @@ The charts are generated from the adjacent local SPY and Gold datasets and
 saved under `presentation_assets/`. The Plotly JavaScript library is shared
 locally by the chart files.
 
-[Open the interactive presentation](https://theafricanquant.github.io/larry-williams-picture-perfect-indicators/).
-The site root redirects to `presentation.html`.
+[Open the interactive presentation](https://www.sisengai.com/larry-williams-picture-perfect-indicators/presentation.html#/title-slide).
+The GitHub Pages site root redirects to `presentation.html`.
 
 GitHub Pages publishes `main` from the repository root. Keep
 `presentation_assets/` and `presentation_files/` beside the deck; it uses both
-directories. If the default `github.io` address redirects to another domain,
-check the repository's **Settings → Pages → Custom domain** setting.
+directories.
 
 From the Backtesting workspace root, regenerate the charts and render the deck:
 
